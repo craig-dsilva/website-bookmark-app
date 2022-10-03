@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
   return (
     <div>
-      <h1>Favourite Webistes</h1>
+      <h1>Favourite Websites</h1>
     </div>
   );
 };
