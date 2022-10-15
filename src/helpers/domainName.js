@@ -12,12 +12,14 @@ const firstHalf = (url) => {
 };
 
 const domainName = (url) => {
-  const firstRemoved = firstHalf(url);
-  const lastRemoved =
-    firstRemoved.split('.')[0] === 'www'
-      ? firstRemoved.split('.')[1]
-      : firstRemoved.split('.')[0];
-  return titleCase(lastRemoved);
+  const splittedFirstHalf = firstHalf(url).split('.');
+  if (splittedFirstHalf[0] === 'www') {
+    splittedFirstHalf.splice(0, 1);
+  }
+  if (splittedFirstHalf.length > 2 && splittedFirstHalf[1] !== 'co') {
+    return titleCase(splittedFirstHalf[1])
+  }
+  return titleCase(splittedFirstHalf[0])
 };
 
 export default domainName;
